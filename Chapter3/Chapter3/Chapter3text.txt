@@ -1,0 +1,144 @@
+3.10 - Comparison of if and while Statements
+if statement:
+
+A single-selection statement used to execute a block of code based on whether a condition is true or false.
+
+The block of code inside the if statement is executed only once if the condition evaluates to true.
+
+while statement:
+
+A repetition statement used to repeatedly execute a block of code as long as a condition remains true.
+
+The code inside the while loop continues to execute as long as the condition evaluates to true and stops when the condition becomes false.
+
+Similarity:
+
+Both if and while statements involve conditional logic.
+
+Both are fundamental control flow structures used in programming.
+
+Difference:
+
+The if statement executes once if the condition is true, while the while loop repeats the execution of its block as long as the condition remains true.
+
+3.11 - Integer Division in Java
+In Java, dividing one integer by another truncates the fractional part and returns an integer. For example:
+
+java
+Copy
+int result = 7 / 3;  // result is 2
+To avoid losing the fractional part, use floating-point types such as float or double to perform the division:
+
+java
+Copy
+double result = 7.0 / 3;  // result is 2.3333
+In this example, the result will contain the fractional part (decimal value) because one of the operands (7.0) is a double, which supports floating-point arithmetic.
+
+3.12 - Combining Control Statements
+Control statements can be combined in two ways:
+
+Nested control statements: One control statement is placed inside another. For example, using an if statement inside a while loop or another if statement.
+
+java
+Copy
+if (condition) {
+    if (anotherCondition) {
+        // inner statement
+    }
+}
+Sequential control statements: Multiple control statements are executed one after the other, each independent of the others.
+
+java
+Copy
+if (condition1) {
+    // statement 1
+}
+if (condition2) {
+    // statement 2
+}
+3.13 - Appropriate Repetition for Calculating Sums
+Sum of the first 100 integers: Since we know the number of iterations (100), a for loop is appropriate.
+
+java
+Copy
+int sum = 0;
+for (int i = 1; i <= 100; i++) {
+    sum += i;
+}
+Sum of an arbitrary number of integers: A while loop or do-while loop with sentinel-controlled repetition (where the user enters a special value like -1 to indicate the end) is appropriate.
+
+java
+Copy
+int sum = 0, number;
+Scanner scanner = new Scanner(System.in);
+System.out.println("Enter numbers to sum (enter -1 to stop):");
+while ((number = scanner.nextInt()) != -1) {
+    sum += number;
+}
+3.14 - Preincrementing vs. Postincrementing
+Preincrement (++x):
+
+Increments the variable first, then uses the incremented value.
+
+java
+Copy
+int x = 5;
+int y = ++x;  // y is 6, x is 6
+Postincrement (x++):
+
+Uses the current value of the variable first, then increments the variable.
+
+java
+Copy
+int z = x++;  // z is 6, x is 7
+3.15 - Correcting Code Errors
+a) Error in the if statement:
+
+The semicolon after the if statement causes a logical error, as it terminates the if block prematurely. The else will always execute, even if the condition is true.
+
+Corrected code:
+
+java
+Copy
+if (age >= 65) {
+    System.out.println("Age is greater than or equal to 65");
+} else {
+    System.out.println("Age is less than 65");
+}
+b) Error in the while loop (uninitialized variable total):
+
+The variable total is not initialized before use in the while loop, leading to potential errors during addition.
+
+Corrected code:
+
+java
+Copy
+int x = 1, total = 0;  // Initialize total
+while (x <= 10) {
+    total += x;
+    ++x;
+}
+c) Error in the while loop (missing braces):
+
+The while loop is missing braces {}. Without braces, only the first statement following the while loop is executed in the loop. The second statement is outside the loop.
+
+Corrected code:
+
+java
+Copy
+while (x <= 100) {
+    total += x;
+    ++x;
+}
+d) Error in the loop condition (incorrect increment of y):
+
+The loop condition should decrement y, not increment it. Otherwise, the loop will run infinitely if y starts as a positive number.
+
+Corrected code:
+
+java
+Copy
+while (y > 0) {
+    System.out.println(y);
+    --y;  // Corrected to decrement y
+}
